@@ -9,6 +9,9 @@ import './job-match-visualization.css';
 import './button-styles.css';
 import './heading-alignment-fix.css';
 
+// Define API_BASE from environment variable at the top for use throughout the file
+const API_BASE = process.env.REACT_APP_API_BASE || 'https://smarthire-backend-d7qq.onrender.com';
+
 const getMatchScoreColor = (score) => {
   if (score >= 80) return 'match-excellent';
   if (score >= 60) return 'match-good';
@@ -103,8 +106,6 @@ export default function RecruiterDashboard({ refreshKey, onBack }) {
     pending: 0,
     avgMatchScore: 0
   });
-
-  const API_BASE = process.env.REACT_APP_API_BASE || 'https://smarthire-backend-d7qq.onrender.com'; // Updated to use env var
 
   const fetchMatches = async () => {
     console.log('Fetching matches...');
