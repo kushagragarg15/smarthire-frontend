@@ -125,7 +125,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
 }
-* View Resume Button in Candidate Detail View */
+/* View Resume Button in Candidate Detail View */
 .btn-status-view-resume {
   background-color: #34d399; /* Softer, more professional green */
   color: #ffffff; /* White text for better readability */
