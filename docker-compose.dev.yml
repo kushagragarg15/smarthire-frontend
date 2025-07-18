@@ -1,0 +1,112 @@
+version: '3.8'
+
+services:
+  # Frontend Development Service
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://localhost:5000
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - backend-dev
+    networks:
+      - smarthire-dev-network
+    restart: unless-stopped
+    command: npm start
+
+  # Backend Development Service (Flask)
+  backend-dev:
+    build:
+      context: ../  # Build from parent directory where Flask app is
+      dockerfile: Dockerfile.backend.dev
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - MONGODB_URI=mongodb://mongo-dev:27017/smarthire_dev
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    depends_on:
+      - mongo-dev
+    networks:
+      - smarthire-dev-network
+    restart: unless-stopped
+    volumes:
+      - ../:/app
+      - ./resumes:/app/resumes
+    command: flask run --host=0.0.0.0 --port=5000 --reload
+
+  # MongoDB Development Service
+  mongo-dev:
+    image: mongo:6.0
+    ports:
+      - "27018:27017"  # Different port to avoid conflicts
+    environment:
+      - MONGO_INITDB_DATABASE=smarthire_dev
+    volumes:
+      - mongo_dev_data:/data/db
+    networks:
+      - smarthire-dev-network
+    restart: unless-stopped
+
+  # Redis Development Service
+  redis-dev:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"  # Different port to avoid conflicts
+    volumes:
+      - redis_dev_data:/data
+    networks:
+      - smarthire-dev-network
+    restart: unless-stopped
+
+  # MongoDB Express (Web UI for MongoDB)
+  mongo-express:
+    image: mongo-express:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo-dev
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=password123
+    depends_on:
+      - mongo-dev
+    networks:
+      - smarthire-dev-network
+    restart: unless-stopped
+    profiles:
+      - tools
+
+  # Redis Commander (Web UI for Redis)
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    ports:
+      - "8082:8081"
+    environment:
+      - REDIS_HOSTS=local:redis-dev:6379
+    depends_on:
+      - redis-dev
+    networks:
+      - smarthire-dev-network
+    restart: unless-stopped
+    profiles:
+      - tools
+
+volumes:
+  mongo_dev_data:
+    driver: local
+  redis_dev_data:
+    driver: local
+
+networks:
+  smarthire-dev-network:
+    driver: bridge 

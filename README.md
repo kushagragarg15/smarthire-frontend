@@ -1,70 +1,213 @@
-# Getting Started with Create React App
+# SmartHire Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, AI-powered resume matching platform built with React. SmartHire helps recruiters and job seekers find the perfect matches using advanced AI technology.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+### For Job Seekers
+- **Resume Upload**: Upload PDF resumes with instant parsing
+- **AI-Powered Matching**: Get intelligent job recommendations based on skills, experience, and education
+- **Profile Display**: View parsed resume information in a clean, organized format
+- **Match Scoring**: See detailed match scores with breakdowns for skills, experience, and education
 
-### `npm start`
+### For Recruiters
+- **Dashboard Management**: Comprehensive dashboard to manage all candidates
+- **Candidate Profiles**: Detailed view of candidate information and job matches
+- **Status Management**: Shortlist, reject, or mark candidates as under review
+- **Export Functionality**: Export candidate data to CSV or PDF
+- **Search & Filter**: Advanced search and filtering capabilities
+- **Real-time Updates**: Auto-polling for live dashboard updates
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Technical Features
+- **Modern UI/UX**: Glass morphism design with smooth animations
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
+- **PWA Support**: Progressive Web App with offline capabilities
+- **Error Handling**: Comprehensive error boundaries and user feedback
+- **Performance Optimized**: Fast loading with optimized assets
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+- **React 19.1.0** - Modern React with hooks and functional components
+- **Lucide React** - Beautiful, customizable icons
+- **Axios** - HTTP client for API communication
+- **jsPDF** - PDF generation for exports
+- **CSS3** - Custom styling with glass morphism effects
+- **PWA** - Progressive Web App capabilities
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📦 Installation
 
-### `npm run build`
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd smarthire-frontend
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
 
-### `npm run eject`
+## 🔧 Configuration
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Environment Variables
+Create a `.env` file in the root directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```env
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_ENVIRONMENT=development
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend Integration
+Ensure the Flask backend is running on `http://localhost:5000` with the following endpoints:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `POST /parse_resume` - Parse uploaded resume
+- `POST /match_jobs` - Match candidate with jobs
+- `GET /resume_matches` - Get all resume matches
+- `POST /update_status` - Update candidate status
 
-## Learn More
+## 📱 Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### For Job Seekers
+1. **Upload Resume**: Click "Choose Resume File" and select your PDF resume
+2. **View Profile**: Review the parsed information from your resume
+3. **See Matches**: View AI-powered job recommendations with match scores
+4. **Job Posting**: Access the job posting form to create new job listings
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### For Recruiters
+1. **Access Dashboard**: Click "Recruiter Dashboard" to view all candidates
+2. **Search & Filter**: Use the search bar and filters to find specific candidates
+3. **Review Profiles**: Click the eye icon to view detailed candidate information
+4. **Manage Status**: Use the action buttons to shortlist, reject, or review candidates
+5. **Export Data**: Download candidate data in CSV or PDF format
 
-### Code Splitting
+## 🎨 Design System
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Color Palette
+- **Primary**: `#3b82f6` (Blue)
+- **Secondary**: `#8b5cf6` (Purple)
+- **Success**: `#16a34a` (Green)
+- **Warning**: `#d97706` (Orange)
+- **Error**: `#dc2626` (Red)
 
-### Analyzing the Bundle Size
+### Typography
+- **Font Family**: Inter (Google Fonts)
+- **Weights**: 300, 400, 500, 600, 700
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Components
+- **Glass Cards**: Semi-transparent cards with backdrop blur
+- **Gradient Icons**: Colorful icon containers with gradients
+- **Animated Elements**: Smooth transitions and hover effects
+- **Responsive Grid**: Flexible layouts for all screen sizes
 
-### Making a Progressive Web App
+## 📊 Performance
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Optimizations
+- **Code Splitting**: Automatic code splitting with React Router
+- **Lazy Loading**: Components loaded on demand
+- **Image Optimization**: Optimized images and icons
+- **Caching**: Service worker for offline functionality
+- **Bundle Optimization**: Minimized and compressed assets
 
-### Advanced Configuration
+### Metrics
+- **First Contentful Paint**: < 1.5s
+- **Largest Contentful Paint**: < 2.5s
+- **Cumulative Layout Shift**: < 0.1
+- **First Input Delay**: < 100ms
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔒 Security
 
-### Deployment
+### Features
+- **Input Validation**: Client-side validation for all forms
+- **XSS Protection**: Sanitized user inputs
+- **CORS Handling**: Proper cross-origin request handling
+- **Error Boundaries**: Graceful error handling without data exposure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🧪 Testing
 
-### `npm run build` fails to minify
+### Available Scripts
+```bash
+# Run tests
+npm test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Run tests with coverage
+npm test -- --coverage
+
+# Run tests in watch mode
+npm test -- --watch
+```
+
+### Test Coverage
+- **Unit Tests**: Component testing with React Testing Library
+- **Integration Tests**: API integration testing
+- **E2E Tests**: End-to-end user flow testing
+
+## 📦 Build & Deploy
+
+### Production Build
+```bash
+npm run build
+```
+
+### Deployment Options
+1. **Netlify**: Drag and drop the `build` folder
+2. **Vercel**: Connect your repository for automatic deployments
+3. **AWS S3**: Upload build files to S3 bucket
+4. **Docker**: Use the provided Dockerfile
+
+### Environment Setup
+```bash
+# Production environment
+REACT_APP_API_URL=https://your-api-domain.com
+REACT_APP_ENVIRONMENT=production
+```
+
+## 🤝 Contributing
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit your changes**: `git commit -m 'Add amazing feature'`
+4. **Push to the branch**: `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
+
+### Code Style
+- Use functional components with hooks
+- Follow ESLint configuration
+- Write meaningful commit messages
+- Add tests for new features
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+### Common Issues
+1. **CORS Errors**: Ensure backend CORS is properly configured
+2. **API Connection**: Verify backend server is running on correct port
+3. **File Upload**: Check file size limits and supported formats
+
+### Getting Help
+- **Documentation**: Check this README and inline code comments
+- **Issues**: Create an issue on GitHub
+- **Discussions**: Use GitHub Discussions for questions
+
+## 🔄 Changelog
+
+### v1.0.0 (Current)
+- Initial release with core functionality
+- Resume parsing and job matching
+- Recruiter dashboard
+- PWA support
+- Modern UI/UX design
+
+---
+
+**Built with ❤️ by the SmartHire Team**

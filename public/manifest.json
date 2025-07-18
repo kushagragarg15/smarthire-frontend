@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SmartHire",
+  "name": "SmartHire - AI-Powered Resume Matching",
+  "description": "Upload your resume and find the perfect job matches with advanced AI technology",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,10 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
+  "theme_color": "#3b82f6",
+  "background_color": "#667eea",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "education"],
+  "lang": "en",
+  "dir": "ltr"
+} 

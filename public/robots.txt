@@ -1,3 +1,21 @@
-# https://www.robotstxt.org/robotstxt.html
+# SmartHire - AI-Powered Resume Matching Platform
+# Allow all crawlers to access the application
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap location (if you have one)
+# Sitemap: https://smarthire.com/sitemap.xml
+
+# Disallow access to API endpoints and private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow access to public assets
+Allow: /static/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1

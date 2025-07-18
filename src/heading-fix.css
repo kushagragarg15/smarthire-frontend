@@ -1,0 +1,44 @@
+/* Perfect Heading Component - Direct Inline Layout */
+.perfect-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.perfect-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.perfect-icon svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.perfect-content {
+  display: inline-block;
+}
+
+.perfect-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+  display: block;
+}
+
+.perfect-subtitle {
+  font-size: 1.1rem;
+  color: #a0aec0;
+  margin-top: 4px;
+  display: block;
+}

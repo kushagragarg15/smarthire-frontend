@@ -1,0 +1,43 @@
+/* Perfect Heading Component - No Alignment Issues */
+.perfect-heading {
+  display: table;
+  margin-bottom: 2.5rem;
+}
+
+.perfect-heading__icon {
+  display: table-cell;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.perfect-heading__icon svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+  vertical-align: middle;
+}
+
+.perfect-heading__content {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 16px;
+}
+
+.perfect-heading__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.perfect-heading__subtitle {
+  font-size: 1.1rem;
+  color: #a0aec0;
+  margin-top: 4px;
+}

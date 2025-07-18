@@ -1,0 +1,94 @@
+/* Heading Alignment Fix */
+
+/* Fix for section headings with icons */
+.section-heading {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+  min-height: auto;
+}
+
+.heading-icon-container {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  margin-right: 16px;
+  border-radius: 10px;
+}
+
+.heading-icon-container svg {
+  width: 24px;
+  height: 24px;
+}
+
+.heading-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: auto;
+  padding-top: 2px;
+}
+
+.heading-title {
+  font-size: 1.75rem;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.heading-subtitle {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Fix for candidate profile section headings */
+.profile-section .section-header-compact {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  gap: 12px;
+}
+
+.profile-section .icon-container-small {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--brand-primary, #3b82f6), var(--brand-secondary, #1e40af));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-section .section-title-compact {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+  line-height: 1.2;
+}
+
+.profile-section .section-subtitle-muted {
+  font-size: 0.85rem;
+  color: var(--text-muted, #A0AEC0);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Fix for glass card section headings */
+.glass-card .section-heading {
+  margin-bottom: 2rem;
+}
+
+/* Fix for dashboard section headings */
+.dashboard-controls + .section-heading {
+  margin-top: 1rem;
+}
+
+/* Fix for candidates section */
+.candidates-grid {
+  margin-top: 1.5rem;
+}

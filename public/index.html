@@ -4,40 +4,202 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="description" content="SmartHire - AI-Powered Resume Matching Platform. Upload your resume and find the perfect job matches with advanced AI technology." />
+    <meta name="keywords" content="resume, job matching, AI, recruitment, hiring, career, job search" />
+    <meta name="author" content="SmartHire Team" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://smarthire.com/" />
+    <meta property="og:title" content="SmartHire - AI-Powered Resume Matching" />
+    <meta property="og:description" content="Upload your resume and find the perfect job matches with advanced AI technology." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://smarthire.com/" />
+    <meta property="twitter:title" content="SmartHire - AI-Powered Resume Matching" />
+    <meta property="twitter:description" content="Upload your resume and find the perfect job matches with advanced AI technology." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              'primary': '#3b82f6',
+              'secondary': '#8b5cf6',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out',
+              'slide-in': 'slideIn 0.3s ease-out',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Custom CSS for animations -->
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out;
+      }
+      
+      .animate-slide-in {
+        animation: slideIn 0.3s ease-out;
+      }
+    </style>
+
+    <title>SmartHire - AI-Powered Resume Matching</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f9fafb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: system-ui, sans-serif;
+        z-index: 9999;
+      ">
+        <div style="
+          background: white;
+          padding: 2rem;
+          border-radius: 0.75rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          max-width: 500px;
+          margin: 1rem;
+        ">
+          <h2 style="color: #ef4444; margin-bottom: 1rem; font-size: 1.5rem; font-weight: bold;">
+            JavaScript Required
+          </h2>
+          <p style="color: #6b7280; margin-bottom: 1.5rem;">
+            SmartHire requires JavaScript to function properly. Please enable JavaScript in your browser and refresh the page.
+          </p>
+          <div style="background: #fef3c7; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem;">
+            <p style="color: #92400e; font-size: 0.875rem;">
+              <strong>How to enable JavaScript:</strong><br>
+              1. Open your browser settings<br>
+              2. Navigate to Privacy & Security<br>
+              3. Enable JavaScript<br>
+              4. Refresh this page
+            </p>
+          </div>
+        </div>
+      </div>
+    </noscript>
+    
+    <!-- Loading screen -->
+    <div id="loading-screen" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9998;
+      transition: opacity 0.3s ease-out;
+    ">
+      <div style="text-align: center; color: white;">
+        <div style="
+          width: 60px;
+          height: 60px;
+          border: 3px solid rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          border-top-color: white;
+          animation: spin 1s ease-in-out infinite;
+          margin: 0 auto 1rem;
+        "></div>
+        <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">
+          SmartHire
+        </h2>
+        <p style="opacity: 0.9;">Loading your AI-powered resume matching platform...</p>
+      </div>
+    </div>
+    
+    <style>
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+    
+    <!-- Main app container -->
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    
+    <!-- Remove loading screen when app loads -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            setTimeout(function() {
+              loadingScreen.remove();
+            }, 300);
+          }
+        }, 1000);
+      });
+    </script>
+    
+    <!-- Error tracking -->
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('SmartHire Error:', e.error);
+      });
+      
+      window.addEventListener('unhandledrejection', function(e) {
+        console.error('SmartHire Unhandled Promise Rejection:', e.reason);
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,43 @@
+/* Custom fix for heading alignment */
+.header-fix {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.header-fix__icon {
+  width: 60px;
+  height: 60px;
+  background-color: #3b82f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.header-fix__icon svg {
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
+.header-fix__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-fix__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.header-fix__subtitle {
+  font-size: 1.1rem;
+  color: #a0aec0;
+  margin-top: 0.5rem;
+}
