@@ -285,6 +285,8 @@ function JobPostingForm() {
   const [isEditing, setIsEditing] = useState(false)
   const [editingJob, setEditingJob] = useState(null)
 
+  const API_BASE = process.env.REACT_APP_API_BASE || 'https://smarthire-backend-d7qq.onrender.com'; // Updated to use env var
+
   // Validation rules
   const validateForm = () => {
     const errors = []
@@ -311,12 +313,12 @@ function JobPostingForm() {
   const fetchJobs = useCallback(async () => {
     try {
       setLoadingJobs(true)
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/jobs`, {
+      const res = await axios.get(`${API_BASE}/jobs`, {
         params: {
           status: filterStatus === "all" ? undefined : filterStatus,
           limit: 50,
         },
-      })
+      }) // Updated base URL
 
       // Handle both old and new API response formats
       const jobsData = res.data.jobs || res.data || []
@@ -328,7 +330,7 @@ function JobPostingForm() {
     } finally {
       setLoadingJobs(false)
     }
-  }, [filterStatus])
+  }, [filterStatus, API_BASE])
 
   useEffect(() => {
     fetchJobs()
@@ -390,7 +392,7 @@ function JobPostingForm() {
         experience: jobData.experience.trim(),
       }
 
-      const endpoint = isEditing ? `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/jobs/${editingJob.id}` : `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/add_job`
+      const endpoint = isEditing ? `${API_BASE}/jobs/${editingJob.id}` : `${API_BASE}/add_job` // Updated base URL
 
       const method = isEditing ? "PUT" : "POST"
 
@@ -438,7 +440,7 @@ function JobPostingForm() {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/jobs/${job.id}`)
+      await axios.delete(`${API_BASE}/jobs/${job.id}`) // Updated base URL
       await fetchJobs()
     } catch (err) {
       console.error("Error deleting job:", err)

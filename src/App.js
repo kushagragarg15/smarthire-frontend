@@ -53,7 +53,8 @@ function App() {
       setJobsLoading(true);
       setJobsError(null);
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/jobs`, { params: { limit: 50 } });
+        const API_BASE = process.env.REACT_APP_API_BASE || 'https://smarthire-backend-d7qq.onrender.com'; // Updated to use env var
+        const res = await axios.get(`${API_BASE}/jobs`, { params: { limit: 50 } }); // Updated base URL
         const jobsData = res.data.jobs || res.data || [];
         setJobs(Array.isArray(jobsData) ? jobsData : []);
       } catch (err) {
@@ -96,13 +97,14 @@ function App() {
     formData.append("resume", resumeFile)
 
     try {
+      const API_BASE = process.env.REACT_APP_API_BASE || 'https://smarthire-backend-d7qq.onrender.com'; // Updated to use env var
       // Step 1: Parse resume
-      const parseRes = await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/parse_resume`, formData, {
+      const parseRes = await axios.post(`${API_BASE}/parse_resume`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
         timeout: 30000, // 30 second timeout
-      })
+      }) // Updated base URL
       
       const profile = parseRes.data.profile
       setParsedProfile(profile)

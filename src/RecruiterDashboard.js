@@ -104,13 +104,15 @@ export default function RecruiterDashboard({ refreshKey, onBack }) {
     avgMatchScore: 0
   });
 
+  const API_BASE = process.env.REACT_APP_API_BASE || 'https://smarthire-backend-d7qq.onrender.com'; // Updated to use env var
+
   const fetchMatches = async () => {
     console.log('Fetching matches...');
     setLoading(true);
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/resume_matches`, {
+      const res = await axios.get(`${API_BASE}/resume_matches`, {
         timeout: 15000, // 15 second timeout
-      });
+      }); // Updated base URL
       console.log('Received data from API:', res.data);
       
       // Handle both array and object responses
@@ -168,10 +170,10 @@ export default function RecruiterDashboard({ refreshKey, onBack }) {
     if (!email) return;
     
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/update_status`, {
+      await axios.post(`${API_BASE}/update_status`, {
         email,
         status
-      });
+      }); // Updated base URL
       
       setResumeMatches(prev => {
         const updated = prev.map(item =>
@@ -522,7 +524,7 @@ export default function RecruiterDashboard({ refreshKey, onBack }) {
                             Reject
                           </button>
                           <button
-                            onClick={() => window.open(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/resume_file/${item.candidate.email}`, '_blank')}
+                            onClick={() => window.open(`${API_BASE}/resume_file/${item.candidate.email}`, '_blank')}
                             className="action-btn action-btn-view-resume"
                           >
                             <FileText className="w-3 h-3 mr-1" />
@@ -643,7 +645,7 @@ const CandidateDetailView = ({ candidate, onBack, onStatusUpdate }) => {
                           Reject
                         </button>
                         <button
-                          onClick={() => window.open(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/resume_file/${candidate.candidate.email}`, '_blank')}
+                          onClick={() => window.open(`${API_BASE}/resume_file/${candidate.candidate.email}`, '_blank')}
                           className="status-btn status-btn-view-resume"
                         >
                           <FileText className="w-4 h-4 mr-1" />
